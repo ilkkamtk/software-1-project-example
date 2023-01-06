@@ -55,7 +55,6 @@ def airports_in_range(icao, a_ports, p_range):
         dist = calculate_distance(icao, a_port['ident'])
         if dist <= p_range and not dist == 0:
             in_range.append(a_port)
-    print(in_range)
     return in_range
 
 
@@ -150,13 +149,13 @@ while not game_over:
         win = True
         game_over = True
     # pause
-    input("1. Press Enter to continue...")
+    input("Press Enter to continue...")
     # if airport has goal ask if player wants to open it
     # check goal type and add/subtract money accordingly
     goal = check_goal(game_id, current_airport)
     if goal:
         question = input(
-            f'''Do you want to open lootbox for {"100$ or" if money > 100 else ""}  {"50km range" if player_range > 50 else ""}? M = money, R = range, enter to skip: ''')
+            f'''Do you want to open lootbox for {"100$ or " if money > 100 else ""}{"50km range" if player_range > 50 else ""}? M = money, R = range, enter to skip: ''')
         if not question == '':
             if question == 'M':
                 money -= 100
@@ -173,7 +172,7 @@ while not game_over:
                 money = 0
                 print(f'''Oh no! You have been robbed. You lost all your money''')
         # pause
-        input("2. Press Enter to continue...")
+        input("Press Enter to continue...")
     # ask to buy fuel/range
     if money > 0:
         question2 = input('Do you want to by fuel? 1$ = 2km of range. Enter amount or press enter. ')
@@ -186,7 +185,7 @@ while not game_over:
                 money -= question2
                 print(f'''You have now {money:.0f}$ and {player_range}km of range''')
         # pause
-        input("3. Press Enter to continue...")
+        input("Press Enter to continue...")
     # if no range, game over
     # show airports in range. if none, game over
     airports = airports_in_range(current_airport, all_airports, player_range)
