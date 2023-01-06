@@ -6,9 +6,9 @@ from geopy import distance
 conn = mysql.connector.connect(
     host='localhost',
     port=3306,
-    database='gamedemo',
-    user='root',
-    password='q1w2e3r4',
+    database='your-db-here',
+    user='your-user-here',
+    password='your-passwd-here',
     autocommit=True
 )
 
