@@ -5,7 +5,7 @@ This game uses the airport table from the database course.
 
 1. Create a new database 'demogame': `CREATE DATABASE demogame;`
 2. Switch to that database: `USE demogame;`
-3. Import the same `lp.sql` as you did earlier in the course: `source path/to/lp.sql`
+3. Import the same `lp.sql` as you did earlier in the database course: `source path/to/lp.sql`
 4. Keep `airport` and `contry` tables, remove others: 
    - `DROP TABLE game CASCADE;`
    - `DROP TABLE goal CASCADE;`
