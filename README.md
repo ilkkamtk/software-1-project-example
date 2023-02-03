@@ -39,14 +39,10 @@ This game uses the airport table from the database course.
         money        int(8)      null,
         location     varchar(10) null,
         screen_name  varchar(40) null,
-        player_range int         null,
-        constraint game_ibfk_1
-            foreign key (location) references airport (ident)
+        player_range int         null
     )
         charset = latin1;
-    
-    create index location
-        on game (location);
+   
     ```
     ```sql
     create table goal
