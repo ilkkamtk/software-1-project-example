@@ -95,8 +95,8 @@ def create_game(start_money, p_range, cur_airport, p_name, a_ports):
         for i in range(0, g['probability'], 1):
             goal_list.append(g['id'])
 
-    # randomise airports, first make copy
-    c_ports = a_ports.copy()
+    # randomise airports, first make copy, exclude start
+    c_ports = a_ports[1:].copy()
     random.shuffle(c_ports)
 
     for i, goal_id in enumerate(goal_list):
@@ -129,8 +129,8 @@ score = 0
 diamond_found = False
 # all airports
 all_airports = get_airports()
-# start_airport
-start_airport = all_airports.pop(0)['ident']
+# start_airport ident
+start_airport = all_airports[0]['ident']
 # current airport
 current_airport = start_airport
 # game id
@@ -148,6 +148,7 @@ while not game_over:
         print(f'''You won! You have {money}$ and {player_range}km of range left.''')
         win = True
         game_over = True
+        break
     # pause
     input("Press Enter to continue...")
     # if airport has goal ask if player wants to open it
