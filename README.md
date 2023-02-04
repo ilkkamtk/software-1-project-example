@@ -32,20 +32,20 @@ This game uses the airport table from the database course.
    - `DROP TABLE goal_reached;`
    - `SET FOREIGN_KEY_CHECKS = 1;`
 5. Create the following tables:
-  ```sql
-  create table game
-  (
-      id           int auto_increment
-          primary key,
-      money        int(8)      null,
-      location     varchar(10) null,
-      screen_name  varchar(40) null,
-      player_range int         null
-  )
+   ```sql
+     create table game
+     (
+         id           int auto_increment
+             primary key,
+         money        int(8)      null,
+         location     varchar(10) null,
+         screen_name  varchar(40) null,
+         player_range int         null
+     )
       charset = latin1;
    
-    ```
-    ```sql
+   ```
+   ```sql
     create table goal
     (
         id          int         not null
@@ -62,8 +62,8 @@ This game uses the airport table from the database course.
             (3, 'RUBY', 1000, 2),
             (4, 'DIAMOND', 0, 1),
             (5, 'BANDIT', -1, 3);
-    ```
-    ```sql
+   ```
+   ```sql
     create table ports
     (
         id      int auto_increment
@@ -73,7 +73,7 @@ This game uses the airport table from the database course.
         goal    int                  null,
         opened  tinyint(1) default 0 null
     );
-    ```
+   ```
 6. Check that you have the necessary tables: `SHOW TABLES;`
    - The result should be like this:
    ```text
