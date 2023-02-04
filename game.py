@@ -1,14 +1,16 @@
 import random
 
+import folium
+
 import mysql.connector
 from geopy import distance
 
 conn = mysql.connector.connect(
     host='localhost',
     port=3306,
-    database='your-db-here',
-    user='your-user-here',
-    password='your-passwd-here',
+    database='test',
+    user='ilkkamtk',
+    password='q1w2e3r4',
     autocommit=True
 )
 
@@ -95,8 +97,8 @@ def create_game(start_money, p_range, cur_airport, p_name, a_ports):
         for i in range(0, g['probability'], 1):
             goal_list.append(g['id'])
 
-    # randomise airports, first make copy
-    c_ports = a_ports.copy()
+    # randomise airports, first make copy, exclude start
+    c_ports = a_ports[1:].copy()
     random.shuffle(c_ports)
 
     for i, goal_id in enumerate(goal_list):
@@ -129,12 +131,35 @@ score = 0
 diamond_found = False
 # all airports
 all_airports = get_airports()
-# start_airport
-start_airport = all_airports.pop(0)['ident']
+# start_airport ident
+start_airport = all_airports[0]['ident']
 # current airport
 current_airport = start_airport
 # game id
 game_id = create_game(money, player_range, start_airport, player, all_airports)
+
+# map to explain the game in the video
+
+def showMap(coordinates):
+  map = folium.Map(location=[coordinates[0]['latitude_deg'], coordinates[0]['longitude_deg']], zoom_start=5)
+  # add the first marker
+  folium.Marker(
+      location=[coordinates[0]['latitude_deg'], coordinates[0]['longitude_deg']],
+      popup=coordinates[0]['name'],
+      icon=folium.Icon(color='green', icon='info-sign')
+  ).add_to(map)
+
+  for i in range(1, len(coordinates)):
+    folium.Marker(
+      location=[coordinates[i]['latitude_deg'], coordinates[i]['longitude_deg']],
+      popup=f"{coordinates[i]['name']}<br><b>{coordinates[i]['ident']}</b>"
+    ).add_to(map)
+
+  # open the map manually
+  map.save('map.html')
+
+
+showMap(all_airports)
 
 # GAME LOOP/FUNCTION
 while not game_over:
@@ -148,6 +173,7 @@ while not game_over:
         print(f'''You won! You have {money}$ and {player_range}km of range left.''')
         win = True
         game_over = True
+        break
     # pause
     input("Press Enter to continue...")
     # if airport has goal ask if player wants to open it
