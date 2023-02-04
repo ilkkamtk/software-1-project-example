@@ -31,19 +31,18 @@ This game uses the airport table from the database course.
    - `DROP TABLE goal;`
    - `DROP TABLE goal_reached;`
    - `SET FOREIGN_KEY_CHECKS = 1;`
-     - `CASCADE` is needed, because _game_ and _goal_ tables have constraints (relations to other tables)
 5. Create the following tables:
-    ```sql
-    create table game
-    (
-        id           int auto_increment
-            primary key,
-        money        int(8)      null,
-        location     varchar(10) null,
-        screen_name  varchar(40) null,
-        player_range int         null
-    )
-        charset = latin1;
+  ```sql
+  create table game
+  (
+      id           int auto_increment
+          primary key,
+      money        int(8)      null,
+      location     varchar(10) null,
+      screen_name  varchar(40) null,
+      player_range int         null
+  )
+      charset = latin1;
    
     ```
     ```sql
