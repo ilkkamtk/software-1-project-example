@@ -17,7 +17,7 @@ conn = mysql.connector.connect(
 
 # select 30 airports for the game
 def get_airports():
-    sql = f'''SELECT DISTINCT iso_country, ident, name, type, latitude_deg, longitude_deg
+    sql = f'''SELECT iso_country, ident, name, type, latitude_deg, longitude_deg
               FROM airport
               WHERE iso_country IN (SELECT iso_country FROM airport WHERE continent = 'EU')
               AND ident IN (SELECT MIN(ident) FROM airport WHERE continent = 'EU' AND type='large_airport' GROUP BY iso_country)
