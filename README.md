@@ -1,6 +1,8 @@
 # software-1-project-example
 Game inspired by the infamous Afrikan Tähti.
 
+[![Watch the video](https://i.ytimg.com/vi/6r5i5T8HqnU/hqdefault.jpg?sqp=-oaymwE2CNACELwBSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARhCIFEoZTAP&rs=AOn4CLChxT8RVJARgLLL6u5kXhdM1GtdHA)](https://youtube.com/playlist?list=PLKenVLUxjmH9AyGZUeNDs8RinDVLQIQXY)
+
 ### Story
 John was an adventurous traveler, who had always wanted to explore the world. One day, he decided he was going to take on the ultimate challenge and try to find the elusive and mysterious diamond of the sky. 
 
