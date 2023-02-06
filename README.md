@@ -10,17 +10,18 @@ You are an adventurous traveler, who has always wanted to explore the world. One
 
 You set off on your journey, traveling to the first airport on your list. When you arrived, you were greeted with a message on the airport's display board that said "Welcome to X Airport! You have X$ and Xkm of range left." 
 
-You were determined to find the diamond, and you knew you would need money and range to do so. You decided to try your luck and opened a lootbox at the airport. Much to your surprise, you won a great reward- money! You were ecstatic and now had the funds to continue on your journey.
+You are determined to find the diamond, and you know you need money and range to do so. You decide to try your luck and open a lootbox at the airport. Much to your surprise, you win a great reward- money! You are ecstatic and now have the funds to continue on your journey.
 
-With your newfound wealth, you were able to continue on your journey, but you had to be careful with your money and range. You were able to purchase fuel at each airport, and you eventually made it to the airport where the diamond was rumored to be. 
+With your newfound wealth, you are able to continue on your journey, but you have to be careful with your money and range. You are able to purchase fuel at each airport, and you eventually make it to the airport where the diamond is rumored to be.
 
-Much to your surprise, when you arrived, you saw the diamond shining in the sunlight. You had finally found the diamond!
+Much to your surprise, when you arrive, you see the diamond shining in the sunlight. You have finally found the diamond!
 
-You were elated, but you knew you had to be careful as you made your way back to the starting airport. You had heard rumors that robbers were prowling around the airports, hoping to steal money and valuable items. As you made your way back, you were careful to not fall victim to any of their schemes. 
+You are elated, but you know you have to be careful as you make your way back to the starting airport. You have heard rumors that robbers are prowling around the airports, hoping to steal money and valuable items. As you make your way back, you are careful to not fall victim to any of their schemes.
 
-When you finally arrived back at the starting airport, you were relieved to find that you still had the diamond and all the money you had won along the way. You had won the challenge! 
+When you finally arrive back at the starting airport, you are relieved to find that you still have the diamond and all the money you won along the way. You have won the challenge!
 
-You were overjoyed with your success and the money you had won. You had finally found the diamond of the sky and was able to keep all of your hard-earned money. You were a true success story!
+You are overjoyed with your success and the money you have won. You have finally found the diamond of the sky and were able to keep all of your hard-earned money.
+
 ### Database
 
 This game uses the airport table from the database course.
