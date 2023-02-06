@@ -5,22 +5,22 @@ Game inspired by the infamous Afrikan Tähti.
 [![Watch the videos](https://i.ytimg.com/vi/AVAs9eFomD8/hqdefault.jpg?sqp=-oaymwE2CNACELwBSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARhBIFUoZTAP&rs=AOn4CLCT0c5w686gZCkuXoLKE4GQnl4lHw)](https://youtube.com/playlist?list=PLKenVLUxjmH9AyGZUeNDs8RinDVLQIQXY)
 
 ### Story
-John was an adventurous traveler, who had always wanted to explore the world. One day, he decided he was going to take on the ultimate challenge and try to find the elusive and mysterious diamond of the sky. 
 
-John set off on his journey, traveling to the first airport on his list. When he arrived, he was greeted with a message on the airport's display board that said "Welcome to X Airport! You have X$ and Xkm of range left." 
+You are an adventurous traveler, who has always wanted to explore the world. One day, you decide you are going to take on the ultimate challenge and try to find the elusive and mysterious diamond of the sky.
 
-John was determined to find the diamond, and he knew he would need money and range to do so. He decided to try his luck and opened a lootbox at the airport. Much to his surprise, he won a great reward- money! He was ecstatic and now had the funds to continue on his journey.
+You set off on your journey, traveling to the first airport on your list. When you arrived, you were greeted with a message on the airport's display board that said "Welcome to X Airport! You have X$ and Xkm of range left." 
 
-With his newfound wealth, John was able to continue on his journey, but he had to be careful with his money and range. He was able to purchase fuel at each airport, and he eventually made it to the airport where the diamond was rumored to be. 
+You were determined to find the diamond, and you knew you would need money and range to do so. You decided to try your luck and opened a lootbox at the airport. Much to your surprise, you won a great reward- money! You were ecstatic and now had the funds to continue on your journey.
 
-Much to his surprise, when he arrived, he saw the diamond shining in the sunlight. He had finally found the diamond!
+With your newfound wealth, you were able to continue on your journey, but you had to be careful with your money and range. You were able to purchase fuel at each airport, and you eventually made it to the airport where the diamond was rumored to be. 
 
-John was elated, but he knew he had to be careful as he made his way back to the starting airport. He had heard rumors that robbers were prowling around the airports, hoping to steal money and valuable items. As he made his way back, he was careful to not fall victim to any of their schemes. 
+Much to your surprise, when you arrived, you saw the diamond shining in the sunlight. You had finally found the diamond!
 
-When he finally arrived back at the starting airport, he was relieved to find that he still had the diamond and all the money he had won along the way. He had won the challenge! 
+You were elated, but you knew you had to be careful as you made your way back to the starting airport. You had heard rumors that robbers were prowling around the airports, hoping to steal money and valuable items. As you made your way back, you were careful to not fall victim to any of their schemes. 
 
-John was overjoyed with his success and the money he had won. He had finally found the diamond of the sky and was able to keep all of his hard-earned money. He was a true success story!
+When you finally arrived back at the starting airport, you were relieved to find that you still had the diamond and all the money you had won along the way. You had won the challenge! 
 
+You were overjoyed with your success and the money you had won. You had finally found the diamond of the sky and was able to keep all of your hard-earned money. You were a true success story!
 ### Database
 
 This game uses the airport table from the database course.
