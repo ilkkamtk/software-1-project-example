@@ -1,4 +1,5 @@
 import random
+import story
 
 import mysql.connector
 from geopy import distance
@@ -6,9 +7,9 @@ from geopy import distance
 conn = mysql.connector.connect(
     host='localhost',
     port=3306,
-    database='your-db-here',
-    user='your-user-here',
-    password='your-passwd-here',
+    database='gamedemo',
+    user='ilkkamtk',
+    password='q1w2e3r4',
     autocommit=True
 )
 
@@ -114,8 +115,17 @@ def update_location(icao, p_range, u_money, g_id):
     cursor.execute(sql, (icao, p_range, u_money, g_id))
 
 
+# game starts
+# ask to show the story
+storyDialog = input('Do you want to read the background story? (Y/N): ')
+if storyDialog == 'Y':
+    # print wrapped string line by line
+    for line in story.getStory():
+        print(line)
+
 # GAME SETTINGS
-player = input('Type player name: ')
+print('When you are ready to start, ')
+player = input('type player name: ')
 # boolean for game over
 game_over = False
 win = False
@@ -150,7 +160,7 @@ while not game_over:
         game_over = True
         break
     # pause
-    input("Press Enter to continue...")
+    input("\033[32mPress Enter to continue...\033[0m")
     # if airport has goal ask if player wants to open it
     # check goal type and add/subtract money accordingly
     goal = check_goal(game_id, current_airport)
@@ -173,7 +183,7 @@ while not game_over:
                 money = 0
                 print(f'''Oh no! You have been robbed. You lost all your money''')
         # pause
-        input("Press Enter to continue...")
+        input("\033[32mPress Enter to continue...\033[0m")
     # ask to buy fuel/range
     if money > 0:
         question2 = input('Do you want to by fuel? 1$ = 2km of range. Enter amount or press enter. ')
@@ -186,11 +196,11 @@ while not game_over:
                 money -= question2
                 print(f'''You have now {money:.0f}$ and {player_range}km of range''')
         # pause
-        input("Press Enter to continue...")
+        input("\033[32mPress Enter to continue...\033[0m")
     # if no range, game over
     # show airports in range. if none, game over
     airports = airports_in_range(current_airport, all_airports, player_range)
-    print(f'''There are {len(airports)} airports in range''')
+    print(f'''\033[34mThere are {len(airports)} airports in range: \033[0m''')
     if len(airports) == 0:
         print('You are out of range.')
         game_over = True
