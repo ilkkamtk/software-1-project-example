@@ -7,7 +7,7 @@ from geopy import distance
 conn = mysql.connector.connect(
     host='localhost',
     port=3306,
-    database='gamedemo',
+    database='demogame',
     user='ilkkamtk',
     password='q1w2e3r4',
     autocommit=True
@@ -19,67 +19,13 @@ conn = mysql.connector.connect(
 # select 30 airports for the game
 def get_airports():
     sql = f'''SELECT iso_country, ident, name, type, latitude_deg, longitude_deg
-              FROM airport
-              WHERE iso_country IN (SELECT iso_country FROM airport WHERE continent = 'EU')
-              AND ident IN (SELECT MIN(ident) FROM airport WHERE continent = 'EU' AND type='large_airport' GROUP BY iso_country)
-              ORDER BY RAND()
-              LIMIT 30'''
+             FROM airport
+             WHERE continent = 'EU' AND type='large_airport'
+             ORDER by RAND() 
+             LIMIT 30;'''
     cursor = conn.cursor(dictionary=True)
     cursor.execute(sql)
     result = cursor.fetchall()
-    return result
-
-
-# get airport info
-def get_airport_info(icao):
-    sql = f'''SELECT iso_country, ident, name, latitude_deg, longitude_deg
-                  FROM airport
-                  WHERE ident = %s'''
-    cursor = conn.cursor(dictionary=True)
-    cursor.execute(sql, (icao,))
-    result = cursor.fetchone()
-    return result
-
-
-# calculate distance between two airports
-def calculate_distance(current, target):
-    start = get_airport_info(current)
-    end = get_airport_info(target)
-    return distance.distance((start['latitude_deg'], start['longitude_deg']),
-                             (end['latitude_deg'], end['longitude_deg'])).km
-
-
-# get airports in range
-def airports_in_range(icao, a_ports, p_range):
-    in_range = []
-    for a_port in a_ports:
-        dist = calculate_distance(icao, a_port['ident'])
-        if dist <= p_range and not dist == 0:
-            in_range.append(a_port)
-    return in_range
-
-
-# get all goals
-def get_goals():
-    sql = f'''SELECT * FROM goal'''
-    cursor = conn.cursor(dictionary=True)
-    cursor.execute(sql)
-    result = cursor.fetchall()
-    return result
-
-
-# check if airport has a goal
-def check_goal(g_id, cur_airport):
-    sql = f'''SELECT ports.id, goal, goal.id as goal_id, name, money 
-    FROM ports 
-    JOIN goal ON goal.id = ports.goal 
-    WHERE game = %s 
-    AND airport = %s'''
-    cursor = conn.cursor(dictionary=True)
-    cursor.execute(sql, (g_id, cur_airport))
-    result = cursor.fetchone()
-    if result is None:
-        return False
     return result
 
 
@@ -108,11 +54,64 @@ def create_game(start_money, p_range, cur_airport, p_name, a_ports):
     return g_id
 
 
+# get all goals
+def get_goals():
+    sql = f'''SELECT * FROM goal'''
+    cursor = conn.cursor(dictionary=True)
+    cursor.execute(sql)
+    result = cursor.fetchall()
+    return result
+
+
+# get airport info
+def get_airport_info(icao):
+    sql = f'''SELECT iso_country, ident, name, latitude_deg, longitude_deg
+                  FROM airport
+                  WHERE ident = %s'''
+    cursor = conn.cursor(dictionary=True)
+    cursor.execute(sql, (icao,))
+    result = cursor.fetchone()
+    return result
+
+
+# check if airport has a goal
+def check_goal(g_id, cur_airport):
+    sql = f'''SELECT ports.id, goal, goal.id as goal_id, name, money 
+    FROM ports 
+    JOIN goal ON goal.id = ports.goal 
+    WHERE game = %s 
+    AND airport = %s'''
+    cursor = conn.cursor(dictionary=True)
+    cursor.execute(sql, (g_id, cur_airport))
+    result = cursor.fetchone()
+    if result is None:
+        return False
+    return result
+
+
 # update location
 def update_location(icao, p_range, u_money, g_id):
     sql = f'''UPDATE game SET location = %s, player_range = %s, money = %s WHERE id = %s'''
     cursor = conn.cursor(dictionary=True)
     cursor.execute(sql, (icao, p_range, u_money, g_id))
+
+
+# calculate distance between two airports
+def calculate_distance(current, target):
+    start = get_airport_info(current)
+    end = get_airport_info(target)
+    return distance.distance((start['latitude_deg'], start['longitude_deg']),
+                             (end['latitude_deg'], end['longitude_deg'])).km
+
+
+# get airports in range
+def airports_in_range(icao, a_ports, p_range):
+    in_range = []
+    for a_port in a_ports:
+        dist = calculate_distance(icao, a_port['ident'])
+        if dist <= p_range and not dist == 0:
+            in_range.append(a_port)
+    return in_range
 
 
 # game starts
