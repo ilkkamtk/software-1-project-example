@@ -28,6 +28,7 @@ def get_airports():
     result = cursor.fetchall()
     return result
 
+
 # get all goals
 def get_goals():
     sql = f'''SELECT * FROM goal'''
@@ -35,7 +36,6 @@ def get_goals():
     cursor.execute(sql)
     result = cursor.fetchall()
     return result
-
 
 
 # create new game
