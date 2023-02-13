@@ -28,6 +28,15 @@ def get_airports():
     result = cursor.fetchall()
     return result
 
+# get all goals
+def get_goals():
+    sql = f'''SELECT * FROM goal'''
+    cursor = conn.cursor(dictionary=True)
+    cursor.execute(sql)
+    result = cursor.fetchall()
+    return result
+
+
 
 # create new game
 def create_game(start_money, p_range, cur_airport, p_name, a_ports):
@@ -43,24 +52,15 @@ def create_game(start_money, p_range, cur_airport, p_name, a_ports):
             goal_list.append(g['id'])
 
     # randomise airports, first make copy, exclude start
-    c_ports = a_ports[1:].copy()
-    random.shuffle(c_ports)
+    g_ports = a_ports[1:].copy()
+    random.shuffle(g_ports)
 
     for i, goal_id in enumerate(goal_list):
         sql = f'''INSERT INTO ports (game, airport, goal) VALUES (%s, %s, %s)'''
         cursor = conn.cursor(dictionary=True)
-        cursor.execute(sql, (g_id, c_ports[i]['ident'], goal_id))
+        cursor.execute(sql, (g_id, g_ports[i]['ident'], goal_id))
 
     return g_id
-
-
-# get all goals
-def get_goals():
-    sql = f'''SELECT * FROM goal'''
-    cursor = conn.cursor(dictionary=True)
-    cursor.execute(sql)
-    result = cursor.fetchall()
-    return result
 
 
 # get airport info
